@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 
-import { Hero } from './heroes/hero';
+import { Hero } from '../heroes/hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -59,7 +59,8 @@ export class HeroService {
       return of(result as T);
     };
   }
-
+  
+//TODO non funziona modifica, non si salva, fix it!
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
